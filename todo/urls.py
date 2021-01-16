@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from main.views import homepage, test, second, third
-form django.conf. import settings
+from main.views import homepage, test, second, third, homework31a, homework31b, homework31c
+from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
@@ -24,7 +24,10 @@ urlpatterns = [
     path("", homepage, name="home"),
     path("test/", test, name="test"),
     path("test2/", second),
-    path("test3/", third)
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
-    + static(settings.MEDIA)URL, document_root=settings.MEDIA_ROOT)
+    path("test3/", third),
+    path("hw31a/", homework31a),
+    path("hw31b/", homework31b),
+    path("hw31c/", homework31c),
+]   + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
+    + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     

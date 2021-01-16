@@ -13,4 +13,12 @@ def second(request):
 
 def third(request):
     return HttpResponse("This is page test3")
-    
+
+def homework31a(request):
+    return render (request, "homework31.html")
+
+def homework31b(request):
+    return render (request, "hw31b.html")
+
+def homework31c(request):
+    return render (request, "hw31c.html")
