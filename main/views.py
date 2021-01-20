@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from .models import ToDo
 from .models import Book
 # Create your views here.
@@ -25,3 +25,10 @@ def homework31b(request):
 
 def homework31c(request):
     return render (request, "hw31c.html")
+
+def add_todo(request):
+    form = request.POST
+    text = form["todo_text"]
+    todo = ToDo(text=text)
+    todo.save()
+    return redirect(test)
