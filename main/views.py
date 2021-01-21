@@ -15,16 +15,7 @@ def second(request):
 
 def books(request):
     book_list = Book.objects.all()
-    return render(request, "books.html", {"books_list": book_list})
-
-def homework31a(request):
-    return render (request, "homework31.html")
-
-def homework31b(request):
-    return render (request, "hw31b.html")
-
-def homework31c(request):
-    return render (request, "hw31c.html")
+    return render(request, "books.html", {"book_list": book_list})
 
 def add_todo(request):
     form = request.POST
@@ -38,6 +29,17 @@ def delete_todo(request, id):
     todo.delete()
     return redirect(test)
 
+def mark_todo(request, id):
+    todo = ToDo.objects.get(id=id)
+    todo.is_favorite = True
+    todo.save()
+    return redirect(test)
+
+def unmark_todo(request, id):
+    todo = ToDo.objects.get(id=id)
+    todo.is_favorite = False
+    todo.save()
+    return redirect(test)
 
 
 def add_book(request):
@@ -52,3 +54,26 @@ def add_book(request):
     book = Book(title=title, subtitle=subtitle, description=description, price=price, genre=genre, author=author, year=year)
     book.save()
     return redirect(books)
+
+def delete_book(request, id):
+    book = Book.objects.get(id=id)
+    book.delete()
+    return redirect(books)
+
+def mark_book(request, id):
+    book = Book.objects.get(id=id)
+    book.isfavorite = True
+    book.save()
+    return redirect(books)
+
+
+
+
+def homework31a(request):
+    return render (request, "homework31.html")
+
+def homework31b(request):
+    return render (request, "hw31b.html")
+
+def homework31c(request):
+    return render (request, "hw31c.html")

@@ -1,0 +1,48 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: #263238
+}
+
+section{
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.create_container{
+    width: 80%;
+}
+
+.create_input1 .create_input2 .create_input3 .create_input4 .create_input5 .create_input6 .create_input7{
+    padding: 12px 20px;
+    font-size: 18px;
+    width: 80%;
+}
+.book_item_header{
+    display: flex;
+    align-items:center;
+    min-height: 35px;
+}
+
+.book_item_header h3{
+    font-size: 18px;
+    font-family: sans-serif;
+}
+
+.book_item_footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.book_item_footer .action_buttons{
+    display: flex;
+}
+.book_item_footer img{
+    width: 25px;
+    height: 25px;
+    margin: 0 5px;
+    cursor: pointer;
+}

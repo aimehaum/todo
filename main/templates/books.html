@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{% static 'styles/book.css' %}" />
 </head>
 <body>
     <section>
@@ -57,9 +58,21 @@
             </form>            
         </div>
         <div class="book_container">
-            {% for book in books_list %}
-            <h3>{{ book.title }} - {{ book.author }} - {{ book.genre}}</h3>
-            {% endfor %}
+            {% for book in book_list %}
+            <div class="book_item_header">
+                <h3>{{ book.title }} - {{ book.author }} - {{ book.genre}}</h3>
+            </div>
+            <div class="book_item_footer">
+                <div class="action_buttons">
+                    {% if book.isfavorite %}
+                        <a href="{% url 'mark-book' book.id %}"><img src="{% static './icons/marked.png' %}" /></a>
+                    {% else %}
+                        <a href="{% url 'mark-book' book.id %}"><img src="{% static './icons/unmarked.png' %}" /></a>
+                    {% endif %}
+                    <a href="{% url 'delete-book' book.id %}"><img src="{% static './icons/delete.png' %}" /></a>
+                </div>
+            </div>
+            {% endfor %}  
         </div>
     </section>
 </body>
