@@ -31,13 +31,7 @@ def delete_todo(request, id):
 
 def mark_todo(request, id):
     todo = ToDo.objects.get(id=id)
-    todo.is_favorite = True
-    todo.save()
-    return redirect(test)
-
-def unmark_todo(request, id):
-    todo = ToDo.objects.get(id=id)
-    todo.is_favorite = False
+    todo.is_favorite = not todo.is_favorite
     todo.save()
     return redirect(test)
 
@@ -62,11 +56,14 @@ def delete_book(request, id):
 
 def mark_book(request, id):
     book = Book.objects.get(id=id)
-    book.isfavorite = True
+    book.isfavorite = not book.isfavorite
     book.save()
     return redirect(books)
 
 
+def BooksDetail(request, id):
+    book = Book.objects.get(id=id)
+    return render (request, "books_detail.html", {"book": book})
 
 
 def homework31a(request):
@@ -77,3 +74,5 @@ def homework31b(request):
 
 def homework31c(request):
     return render (request, "hw31c.html")
+
+
